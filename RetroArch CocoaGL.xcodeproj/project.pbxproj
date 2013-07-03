@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5095D5581784C3180071E09E /* RetroArchCocoaGL.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5095D5571784C3180071E09E /* RetroArchCocoaGL.icns */; };
+		50D2B5A41784D2F700AC909A /* RetroArch_CocoaGL.icns in Resources */ = {isa = PBXBuildFile; fileRef = 50D2B5A31784D2F700AC909A /* RetroArch_CocoaGL.icns */; };
 		7409592A0CC826D800261DBF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 740959290CC826D800261DBF /* Credits.rtf */; };
 		745217950CA98A790067AF41 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 745217940CA98A790067AF41 /* OpenGL.framework */; };
 		745217CB0CA98B160067AF41 /* drawInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F0EC600CA98A08009E924F /* drawInfo.m */; };
@@ -26,7 +26,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		5095D5561784C3080071E09E /* RetroArch_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetroArch_Prefix.pch; sourceTree = "<group>"; };
-		5095D5571784C3180071E09E /* RetroArchCocoaGL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RetroArchCocoaGL.icns; sourceTree = "<group>"; };
+		50D2B5A31784D2F700AC909A /* RetroArch_CocoaGL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RetroArch_CocoaGL.icns; sourceTree = "<group>"; };
 		740959020CC8255A00261DBF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		740959290CC826D800261DBF /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		7439218A0CC944C3009BCC59 /* ReadMe.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = ReadMe.rtfd; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5095D5571784C3180071E09E /* RetroArchCocoaGL.icns */,
+				50D2B5A31784D2F700AC909A /* RetroArch_CocoaGL.icns */,
 				740959290CC826D800261DBF /* Credits.rtf */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -200,7 +200,7 @@
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				7409592A0CC826D800261DBF /* Credits.rtf in Resources */,
-				5095D5581784C3180071E09E /* RetroArchCocoaGL.icns in Resources */,
+				50D2B5A41784D2F700AC909A /* RetroArch_CocoaGL.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
