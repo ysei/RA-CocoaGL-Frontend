@@ -48,8 +48,6 @@
 //
 
 #import "BasicOpenGLView.h"
-#import "GLCheck.h"
-#import "drawinfo.h"
 
 // ==================================
 
