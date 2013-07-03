@@ -75,14 +75,6 @@ CFAbsoluteTime gMsgPresistance = 10.0f;
 GLString * gErrStringTex;
 float gErrorTime;
 
-// ==================================
-
-#pragma mark ---- OpenGL Capabilities ----
-
-// GL configuration info globals
-// see GLCheck.h for more info
-CGDisplayCount gNumDisplays = 0;
-
 #pragma mark ---- Utilities ----
 
 static CFAbsoluteTime gStartTime = 0.0f;
