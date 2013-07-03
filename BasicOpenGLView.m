@@ -66,26 +66,7 @@ float gErrorTime;
 
 // GL configuration info globals
 // see GLCheck.h for more info
-GLCaps * gDisplayCaps = NULL; // array of GLCaps
 CGDisplayCount gNumDisplays = 0;
-
-static void getCurrentCaps (void)
-{
- 	// Check for existing opengl caps here
-	// This can be called again with same display caps array when display configurations are changed and
-	//   your info needs to be updated.  Note, if you are doing dynmaic allocation, the number of displays
-	//   may change and thus you should always reallocate your display caps array.
-	if (gDisplayCaps && HaveOpenGLCapsChanged (gDisplayCaps, gNumDisplays)) { // see if caps have changed
-		free (gDisplayCaps);
-		gDisplayCaps = NULL;
-	}
-	if (!gDisplayCaps) { // if we do not have caps
-		CheckOpenGLCaps (0, NULL, &gNumDisplays); // will just update number of displays
-		gDisplayCaps = (GLCaps*) malloc (sizeof (GLCaps) * gNumDisplays);
-		CheckOpenGLCaps (gNumDisplays, gDisplayCaps, &gNumDisplays);
-		initCapsTexture (gDisplayCaps, gNumDisplays); // (re)init the texture for printing caps
-	}
-}
 
 #pragma mark ---- Utilities ----
 
@@ -191,14 +172,6 @@ GLenum glReportError (void)
 
 // ---------------------------------
 
-// updates the contexts model view matrix for object and camera moves
-- (void) updateModelView
-{
-   [[self openGLContext] makeCurrentContext];
-}
-
-// ---------------------------------
-
 // handles resizing of GL need context update and if the window dimensions change, a
 // a window dimension update, reseting of viewport and an update of the projection matrix
 - (void) resizeGL
@@ -255,7 +228,7 @@ GLenum glReportError (void)
 	// if we have current messages
 	if (((getElapsedTime () - msgTime) < gMsgPresistance) || ((getElapsedTime () - gErrorTime) < gMsgPresistance))
 		shouldDraw = YES; // force redraw
-	if (YES == shouldDraw) 
+	if (shouldDraw == YES)
 		[self drawRect:[self bounds]]; // redraw now instead dirty to enable updates during live resize
 }
 
@@ -277,7 +250,7 @@ GLenum glReportError (void)
 
 - (void) createHelpString
 {
-	NSString * string = [NSString stringWithFormat:@"Cmd-A: animate    Cmd-I: show info \n'h': toggle help    'c': toggle OpenGL caps"];
+	NSString * string = [NSString stringWithFormat:@"Cmd-I: show info \n'h': toggle help"];
 	helpStringTex = [[GLString alloc] initWithString:string withAttributes:stanStringAttrib withTextColor:[NSColor colorWithDeviceRed:1.0f green:1.0f blue:1.0f alpha:1.0f] withBoxColor:[NSColor colorWithDeviceRed:0.0f green:0.5f blue:0.0f alpha:0.5f] withBorderColor:[NSColor colorWithDeviceRed:0.3f green:0.8f blue:0.3f alpha:0.8f]];
 }
 
@@ -319,12 +292,6 @@ GLenum glReportError (void)
 
 			if (fDrawHelp)
 				[helpStringTex drawAtPoint:NSMakePoint (floor ((width - [helpStringTex frameSize].width) / 2.0f), floor ((height - [helpStringTex frameSize].height) / 3.0f))];
-			
-			if (fDrawCaps) {
-				long renderer;
-				[[self pixelFormat] getValues:&renderer forAttribute:NSOpenGLPFARendererID forVirtualScreen:[[self openGLContext] currentVirtualScreen]];
-				drawCaps (gDisplayCaps, gNumDisplays, renderer, width);
-			}
 
 			// message string
 			float currTime = getElapsedTime ();
@@ -388,11 +355,6 @@ GLenum glReportError (void)
 			case 'h':
 				// toggle help
 				fDrawHelp = 1 - fDrawHelp;
-				[self setNeedsDisplay: YES];
-				break;
-			case 'c':
-				// toggle caps
-				fDrawCaps = 1 - fDrawCaps;
 				[self setNeedsDisplay: YES];
 				break;
 		}
@@ -465,8 +427,6 @@ GLenum glReportError (void)
 {		
 	// setup viewport and prespective
 	[self resizeGL]; // forces projection matrix update (does test for size changes)
-	[self updateModelView];  // update model view matrix for object
-
 	// clear our drawable
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
@@ -527,7 +487,6 @@ msgTime	= getElapsedTime ();
 	[super update];
 	if (![self inLiveResize])  {// if not doing live resize
 		[self updateInfoString]; // to get change in renderers will rebuld string every time (could test for early out)
-		getCurrentCaps (); // this call checks to see if the current config changed in a reasonably lightweight way to prevent expensive re-allocations
 	}
 }
 
@@ -567,7 +526,6 @@ msgTime	= getElapsedTime ();
 - (void) awakeFromNib
 {
    setStartTime (); // get app start time
-   getCurrentCaps (); // get current GL capabilites for all displays
 	
    // set start values...
    fInfo = 1;
