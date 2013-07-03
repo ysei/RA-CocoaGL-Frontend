@@ -55,7 +55,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import "AppDelegate.h"
+#import "BasicOpenGLView.h"
 
 @implementation AppDelegate
 

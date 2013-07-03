@@ -1,3 +1,16 @@
+// File:		AppDelegate.h
+//
+// Abstract:	Tells the application to quit once the main window closes
+
+#import <Cocoa/Cocoa.h>
+
+@interface AppDelegate : NSObject
+{
+}
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
+
+@end
+
 //
 // File:		BasicOpenGLView.m
 //
@@ -5,7 +18,7 @@
 //
 // Version:		1.1 - minor fixes.
 //				1.0 - Original release.
-//				
+//
 //
 // Disclaimer:	IMPORTANT:  This Apple software is supplied to you by Apple Inc. ("Apple")
 //				in consideration of your agreement to the following terms, and your use,
@@ -46,7 +59,6 @@
 //
 // Copyright ( C ) 2003-2007 Apple Inc. All Rights Reserved.
 //
-
 
 #import <OpenGL/gl.h>
 #import <OpenGL/glext.h>
