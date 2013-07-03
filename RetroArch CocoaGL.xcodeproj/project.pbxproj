@@ -14,14 +14,12 @@
 		74F0EC5D0CA989F9009E924F /* BasicOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F0EC5B0CA989F9009E924F /* BasicOpenGLView.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		50D2B5A31784D2F700AC909A /* RetroArch_CocoaGL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RetroArch_CocoaGL.icns; sourceTree = "<group>"; };
 		740959290CC826D800261DBF /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -51,7 +49,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				74E01FB50CAC4E510030A4D8 /* GL Utilities */,
+				74F0EC6A0CA98A30009E924F /* GLString.h */,
+				74F0EC690CA98A30009E924F /* GLString.m */,
 				74F0EC5B0CA989F9009E924F /* BasicOpenGLView.m */,
 				74F0EC5C0CA989F9009E924F /* BasicOpenGLView.h */,
 			);
@@ -87,20 +86,11 @@
 			children = (
 				7439218A0CC944C3009BCC59 /* ReadMe.rtfd */,
 				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = "RetroArch CocoaGL";
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -122,15 +112,6 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		74E01FB50CAC4E510030A4D8 /* GL Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				74F0EC690CA98A30009E924F /* GLString.m */,
-				74F0EC6A0CA98A30009E924F /* GLString.h */,
-			);
-			name = "GL Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				745217CD0CA98B160067AF41 /* GLString.m in Sources */,
-				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				74F0EC5D0CA989F9009E924F /* BasicOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

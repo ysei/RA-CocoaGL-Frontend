@@ -47,7 +47,24 @@
 // Copyright ( C ) 2003-2007 Apple Inc. All Rights Reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "BasicOpenGLView.h"
+
+/* Tells the application to quit once the main window closes */
+
+@implementation AppDelegate
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
+   return YES;
+}
+
+@end
+
+int main(int argc, char *argv[])
+{
+   return NSApplicationMain(argc,  (const char **) argv);
+}
 
 // ==================================
 
