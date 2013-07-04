@@ -222,19 +222,24 @@ GLenum glReportError (void)
 - (void)animationTimer:(NSTimer *)timer
 {
 	BOOL shouldDraw = NO;
-	if (fAnimate) {
+    
+	if (fAnimate)
+    {
 		CFTimeInterval deltaTime = CFAbsoluteTimeGetCurrent () - time;
 			
 		if (deltaTime > 10.0) // skip pauses
 			return;
-		else {
+		else
 			shouldDraw = YES; // force redraw
-		}
 	}
+    
 	time = CFAbsoluteTimeGetCurrent (); //reset time in all cases
-	// if we have current messages
-	if (((getElapsedTime () - msgTime) < gMsgPresistance) || ((getElapsedTime () - gErrorTime) < gMsgPresistance))
+	
+    // if we have current messages
+	if (((getElapsedTime () - msgTime) < gMsgPresistance) ||
+        ((getElapsedTime () - gErrorTime) < gMsgPresistance))
 		shouldDraw = YES; // force redraw
+    
 	if (shouldDraw == YES)
 		[self drawRect:[self bounds]]; // redraw now instead dirty to enable updates during live resize
 }

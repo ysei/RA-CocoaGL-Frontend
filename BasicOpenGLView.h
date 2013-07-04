@@ -99,7 +99,6 @@ typedef struct {
     bool fInfo;
 	IBOutlet NSMenuItem * infoMenuItem;
 	bool fDrawHelp;
-	bool fDrawCaps;
 	
 	CFAbsoluteTime time;
 	
