@@ -323,8 +323,6 @@ GLenum glReportError (void)
 
 	glDisable (GL_TEXTURE_RECTANGLE_EXT);
 	glDisable (GL_BLEND);
-	if (depthTest)
-		glEnable (GL_DEPTH_TEST);
 	glReportError ();
 }
 
@@ -435,7 +433,7 @@ GLenum glReportError (void)
 	// setup viewport and prespective
 	[self resizeGL]; // forces projection matrix update (does test for size changes)
 	// clear our drawable
-	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear (GL_COLOR_BUFFER_BIT);
 	
 	// model view and projection matricies already set
 
@@ -460,8 +458,6 @@ GLenum glReportError (void)
     [[self openGLContext] setValues:&swapInt forParameter:NSOpenGLCPSwapInterval]; // set to vbl sync
 
 	// init GL stuff here
-	glEnable(GL_DEPTH_TEST);
-
 	glShadeModel(GL_SMOOTH);    
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CCW);
